@@ -71,6 +71,6 @@ services:
     volumes:
       - .dbdata:/var/lib/postgresql
     ports:
-      - 54323:5432
+      - 54325:5432
     networks:
       - apigateway_the_network
