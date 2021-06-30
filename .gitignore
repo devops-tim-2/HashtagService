@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+.dbdata
+
+common/database.db
+migrations
+*.db*
