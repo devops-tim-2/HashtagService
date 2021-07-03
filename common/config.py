@@ -29,8 +29,8 @@ def setup_config(cfg_name: str):
 
 
     # This import must be postponed after init_db has been called
-    # from controller.hashtag_controller import HashtagResource
-    # api.add_resource(HashtagResource, '/api/<value>')
+    from controller.hashtag_controller import HashtagResource
+    api.add_resource(HashtagResource, '/api/<value>')
 
 
     # This import must be postponed after init_db has been called
