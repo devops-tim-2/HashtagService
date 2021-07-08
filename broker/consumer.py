@@ -16,7 +16,8 @@ class PostConsumer:
         try:
             data = json.loads(body)
 
-            if properties.content_type == 'post.created':            
+            if properties.content_type == 'post.created':      
+                print('here')      
                 post_service.create(data)
             elif properties.content_type == 'post.deleted':
                 post_service.delete(data['id'])
