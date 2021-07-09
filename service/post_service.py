@@ -14,14 +14,15 @@ def create(post_data: dict):
         return
 
     hashtags = list(filter(lambda word: word.startswith('#'), description.split(' ')))
-
     for hashtag in hashtags:
         try:
-            tag = Tag(value=hashtag[1:])
-            tag_service.save(tag)
-        except:
-            tag = tag_service.get_with_value(hashtag[1:])
-
+            if tag_service.exists(hashtag[1:]):
+                tag = tag_service.get_with_value(hashtag[1:])
+            else:
+                tag = Tag(value=hashtag[1:])
+                tag_service.save(tag)
+        except Exception as e:
+            print(e)
         posttag_service.create(post.id, tag.id)
 
 def get_with_tag(value: str, page: int, per_page: int):
